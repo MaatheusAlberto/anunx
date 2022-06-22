@@ -1,6 +1,18 @@
 //Página de publicações
 import { useState } from 'react'
-import { Box, Container, Select, TextField, Typography, Button, IconButton} from '@material-ui/core'
+import { 
+    Box, 
+    Container, 
+    Select, 
+    TextField, 
+    Typography, 
+    Button, 
+    IconButton, 
+    FormControl,
+    InputLabel,
+    OutlinedInput,
+    InputAdornment,
+} from '@material-ui/core'
 import { useDropzone } from 'react-dropzone'
 import { makeStyles } from '@material-ui/core/styles'
 import { DeleteForever } from '@material-ui/icons'
@@ -210,6 +222,23 @@ const Publish = () => {
                         variant="outlined"
                         fullWidth
                     />
+                </Box>
+            </Container>
+
+            <Container maxWidth="md" className={classes.boxContainer}>
+                <Box className={classes.box} >
+                    <Typography component="h6" variant="h6" color="textPrimary">
+                        Preço
+                    </Typography>
+                    <br />
+                    <FormControl fullWidth variant="outlined">
+                        <InputLabel> Valor</InputLabel>
+                        <OutlinedInput 
+                            onChange={() => {}}
+                            startAdornment={<InputAdornment position="start">R$</InputAdornment>}
+                            labelWidth={40}
+                        />
+                    </FormControl>
                 </Box>
             </Container>
 
