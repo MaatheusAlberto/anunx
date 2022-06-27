@@ -10,11 +10,13 @@ import {
     TextField, 
     Typography, 
     Button, 
-    IconButton, 
-    FormControl,
+    IconButton,
     InputLabel,
     OutlinedInput,
     InputAdornment,
+    MenuItem,
+    FormControl,
+    FormHelperText,
 } from '@material-ui/core'
 
 import { useDropzone } from 'react-dropzone'
@@ -94,6 +96,7 @@ const validationSchema = yup.object().shape({
         .max(100, 'Titulo muito grande')
         .required('Campo obrigatório'),
     
+    category: yup.string().required('Campo obrigatório')
 })
 
 const Publish = () => {
@@ -126,7 +129,8 @@ const Publish = () => {
         <TemplateDefault> 
             <Formik
                 initialValues={{
-                    title: ''
+                    title: '',
+                    category: '',
                 }}
                 validationSchema={validationSchema}
                 onSubmit={(values) => {
@@ -171,27 +175,28 @@ const Publish = () => {
                                         <Typography component="h6" variant="h6" color="textPrimary">
                                             Categoria
                                         </Typography>
-                                        <Select
-                                        native
-                                        value=""
-                                        fullWidth
-                                        onChange={() => {}}
-                                        inputProps={{
-                                            name: 'age',    
-                                        }}
-                                        >
-                                            <option value=""> Selecione </option>
-                                            <option value={1}> Bebê e Criança </option>
-                                            <option value={2}> Agricultura </option>
-                                            <option value={3}> Moda </option>
-                                            <option value={4}> Carros, Motos e Barcos </option>
-                                            <option value={5}> Lazer </option>
-                                            <option value={6}> Moveis </option>
-                                            <option value={7}> Imóveis </option>
-                                            <option value={8}> Equipamentos e Ferramentas </option>
-                                            <option value={9}> Celulares e Tablets </option>
-                                            <option value={10}> Outros </option>
-                                        </Select>
+                                        <FormControl error={errors.category} fullWidth>
+                                            <Select
+                                                name="category"
+                                                value={values.category}
+                                                fullWidth
+                                                onChange={handleChange}
+                                            >
+                                                <MenuItem value="Bebê e Criança"> Bebê e Criança </MenuItem>
+                                                <MenuItem value="Agricultura"> Agricultura </MenuItem>
+                                                <MenuItem value="Moda"> Moda </MenuItem>
+                                                <MenuItem value="Carros, Motos e Barcos"> Carros, Motos e Barcos </MenuItem>
+                                                <MenuItem value="Lazer"> Lazer </MenuItem>
+                                                <MenuItem value="Moveis"> Moveis </MenuItem>
+                                                <MenuItem value="Imóveis"> Imóveis </MenuItem>
+                                                <MenuItem value="Equipamentos e Ferramentas"> Equipamentos e Ferramentas </MenuItem>
+                                                <MenuItem value="Celulares e Tablets"> Celulares e Tablets </MenuItem>
+                                                <MenuItem value="Outros"> Outros </MenuItem>
+                                            </Select>
+                                            <FormHelperText>
+                                                { errors.category }
+                                            </FormHelperText>
+                                        </FormControl>
                                     </Box>
                                 </Container>
 
