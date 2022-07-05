@@ -30,7 +30,7 @@ const FileUpload = ({ files, errors, touched, setFieldValue }) => {
     })
 
     const handleRemoveFile = filePath => {
-        console.log(filePath, files)
+        //console.log(filePath, files)
         const newFileState = files.filter(file => file.path !== filePath)
         setFieldValue('files',newFileState)
     }

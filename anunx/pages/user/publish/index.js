@@ -22,8 +22,6 @@ import FileUpload from '../../../src/components/FileUpload'
 
 import useStyles from './styles'
 
-
-
 const Publish = () => {
     const classes = useStyles()
 
@@ -56,7 +54,7 @@ const Publish = () => {
                                     <Typography component="h5" variant="h5" align="center" color="textPrimary">
                                         Quanto mais detalhado, melhor!
                                     </Typography>
-                                </Container><br /> <br />
+                                </Container><br /><br />
 
                                 <Container maxWidth="md" className={classes.boxContainer}>
                                     <Box className={classes.box}>
