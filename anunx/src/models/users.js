@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 
+//campos do BD
 const schema = new mongoose.Schema({
     name:{
         type: String,
