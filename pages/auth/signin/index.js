@@ -64,7 +64,7 @@ return (
                           return (
                             <form onSubmit={handleSubmit}>
                                 {
-                                    router.query.i === '1'
+                                    router.query.error
                                     ? (
                                         <Alert severity="error" className={classes.errorMessage}>
                                             Usuário ou senha inválidos
