@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import TemplateDefault from '../../src/templates/Default'
 
 import Card from '../../src/components/Card'
+import Link from 'next/link'
 
 const useStyles = makeStyles((theme) => ({
   buttonAdd: {
@@ -21,9 +22,11 @@ const Home = () => {
         <Typography component="h1" variant="h2" align="center">
           Meus Anúncios
         </Typography>
-        <Button variant="contained" color="primary" className={classes.buttonAdd}>
-          Publicar novo anúncio
-        </Button>
+        <Link href='/user/publish'>
+          <Button variant="contained" color="primary" className={classes.buttonAdd}>
+            Publicar novo anúncio
+          </Button>
+        </Link>
       </Container>
       <Container maxWidth="md">
         <Grid container spacing={4}>

@@ -1,6 +1,7 @@
 import axios from "axios"
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import { useDropzone } from "react-dropzone"
 
 
 export default NextAuth({
@@ -33,15 +34,16 @@ export default NextAuth({
     },
 
     callbacks: {
-      jwt:({token,user})=>{
-        if(user){
-          token.id = user.userId;
+      jwt: async ({ user, token }) => {
+        if (user) {
+          token.uid = user._id;
         }
         return token;
       },
-      session:({session,token}) =>{
-        if(token){
-          session.user.id = token.id;
+      session: async ({ session, token }) => {
+        if (session?.user) {
+          session.userId = token.uid;
+
         }
         return session;
       },
