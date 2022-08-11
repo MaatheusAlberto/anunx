@@ -8,6 +8,8 @@ import dbConnect from '../../src/utils/dbConnect'
 import ProductsModel from '../../src/models/products'
 import TemplateDefault from '../../src/templates/Default'
 import Card from '../../src/components/Card'
+import { formatCurrency } from '../../src/utils/currency'
+
 
 const useStyles = makeStyles((theme) => ({
   buttonAdd: {
@@ -39,8 +41,8 @@ const Home = ({ products }) => {
                 <Grid key={product._id} item xs={12} sm={6} md={4}>
                   <Card
                     image={`/uploads/${product.files[0].name}`}
-                    title={products.title}
-                    subtitle={products.price}
+                    title={product.title}
+                    subtitle={formatCurrency(product.price)}
                     actions={
                       <>
                         <Button size="small" color="primary">
